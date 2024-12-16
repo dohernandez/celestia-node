@@ -13,6 +13,7 @@ import (
 	"github.com/celestiaorg/celestia-node/nodebuilder/node"
 	"github.com/celestiaorg/celestia-node/nodebuilder/p2p"
 	"github.com/celestiaorg/celestia-node/nodebuilder/share"
+	"github.com/celestiaorg/celestia-node/nodebuilder/sign"
 	"github.com/celestiaorg/celestia-node/nodebuilder/state"
 )
 
@@ -28,6 +29,7 @@ func registerEndpoints(
 	blobMod blob.Module,
 	daMod da.Module,
 	blobstreamMod blobstream.Module,
+	signMod sign.Module,
 	serv *rpc.Server,
 ) {
 	serv.RegisterService("fraud", fraudMod, &fraud.API{})
@@ -40,6 +42,7 @@ func registerEndpoints(
 	serv.RegisterService("blob", blobMod, &blob.API{})
 	serv.RegisterService("da", daMod, &da.API{})
 	serv.RegisterService("blobstream", blobstreamMod, &blobstream.API{})
+	serv.RegisterService("sign", signMod, &sign.API{})
 }
 
 func server(cfg *Config, signer jwt.Signer, verifier jwt.Verifier) *rpc.Server {

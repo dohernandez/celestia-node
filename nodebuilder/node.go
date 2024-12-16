@@ -30,6 +30,7 @@ import (
 	"github.com/celestiaorg/celestia-node/nodebuilder/node"
 	"github.com/celestiaorg/celestia-node/nodebuilder/p2p"
 	"github.com/celestiaorg/celestia-node/nodebuilder/share"
+	"github.com/celestiaorg/celestia-node/nodebuilder/sign"
 	"github.com/celestiaorg/celestia-node/nodebuilder/state"
 	"github.com/celestiaorg/celestia-node/store"
 )
@@ -79,6 +80,7 @@ type Node struct {
 	AdminServ     node.Module   // not optional
 	DAMod         da.Module     // not optional
 	BlobstreamMod blobstream.Module
+	SignMod       sign.Module // not optional
 
 	// start and stop control ref internal fx.App lifecycle funcs to be called from Start and Stop
 	start, stop lifecycleFunc

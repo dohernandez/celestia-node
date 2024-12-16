@@ -8,6 +8,7 @@ import (
 	"github.com/celestiaorg/celestia-node/nodebuilder/node"
 	"github.com/celestiaorg/celestia-node/nodebuilder/p2p"
 	"github.com/celestiaorg/celestia-node/nodebuilder/share"
+	"github.com/celestiaorg/celestia-node/nodebuilder/sign"
 	"github.com/celestiaorg/celestia-node/nodebuilder/state"
 )
 
@@ -22,4 +23,5 @@ var PackageToAPI = map[string]interface{}{
 	"p2p":    &p2p.API{},
 	"blob":   &blob.API{},
 	"node":   &node.API{},
+	"sign":   &sign.API{},
 }

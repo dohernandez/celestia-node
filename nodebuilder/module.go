@@ -20,6 +20,7 @@ import (
 	"github.com/celestiaorg/celestia-node/nodebuilder/pruner"
 	"github.com/celestiaorg/celestia-node/nodebuilder/rpc"
 	"github.com/celestiaorg/celestia-node/nodebuilder/share"
+	"github.com/celestiaorg/celestia-node/nodebuilder/sign"
 	"github.com/celestiaorg/celestia-node/nodebuilder/state"
 )
 
@@ -58,6 +59,7 @@ func ConstructModule(tp node.Type, network p2p.Network, cfg *Config, store Store
 		pruner.ConstructModule(tp, &cfg.Pruner),
 		rpc.ConstructModule(tp, &cfg.RPC),
 		blobstream.ConstructModule(),
+		sign.ConstructModule(tp),
 	)
 
 	return fx.Module(

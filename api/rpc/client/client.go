@@ -17,6 +17,7 @@ import (
 	"github.com/celestiaorg/celestia-node/nodebuilder/node"
 	"github.com/celestiaorg/celestia-node/nodebuilder/p2p"
 	"github.com/celestiaorg/celestia-node/nodebuilder/share"
+	"github.com/celestiaorg/celestia-node/nodebuilder/sign"
 	"github.com/celestiaorg/celestia-node/nodebuilder/state"
 )
 
@@ -37,6 +38,7 @@ type Client struct {
 	Blob       blob.API
 	DA         da.API
 	Blobstream blobstream.API
+	Sing       sign.API
 
 	closer multiClientCloser
 }
@@ -97,5 +99,6 @@ func moduleMap(client *Client) map[string]interface{} {
 		"blob":       &client.Blob.Internal,
 		"da":         &client.DA.Internal,
 		"blobstream": &client.Blobstream.Internal,
+		"sign":       &client.Sing.Internal,
 	}
 }
